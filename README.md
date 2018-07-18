@@ -4,6 +4,20 @@ cas单点登录结合shiro
 # CAS 使用4.1.10  
 cas-server-webapp里deployerConfigContext.xml添加下列代码 自定义数据库查询用户名密码比对
 
+添加pom依赖
+
+	<dependency>
+        <groupId>org.jasig.cas</groupId>
+        <artifactId>cas-server-support-jdbc</artifactId>
+        <version>4.1.10</version>
+    </dependency>
+
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>5.1.35</version>
+    </dependency>
+
 将原代码注释  源代码使用 casuser  Mellon 进行登录
 	<!--
     <bean id="primaryAuthenticationHandler"
@@ -57,7 +71,7 @@ server:
 # tomcat部分查询相关资料	
 
 # shiro在https下通过setUnauthorizedUrl("403");不好使，具体原因百度，需要自行添加一个异常跳转
-# 使用@ControllerAdvice做异常处理  添加的是GlobalExceptionHandler类
+ 使用@ControllerAdvice做异常处理  添加的是GlobalExceptionHandler类
 
 
 	
