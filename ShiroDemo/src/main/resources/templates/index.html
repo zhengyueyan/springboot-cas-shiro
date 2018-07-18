@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<h1>index</h1>
+<div onclick="toInfo()">to userInfo</div>
+</body>
+</html>
+<script>
+    function toInfo(){
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/userInfo/userList",
+            success: function(data){
+                console.log(data)
+            },
+            error: function(data){
+                console.log(data)
+            }
+        })
+    }
+</script>
